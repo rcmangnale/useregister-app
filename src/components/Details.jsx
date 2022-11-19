@@ -8,26 +8,11 @@ const Details = () => {
 
   const history = useNavigate();
 
-  const [show, setShow] = useState(false);
-
-  var todayDate = new Date().toISOString().slice(0, 10);
-  const handleShow = () => setShow(true);
-
   const Welcome = () => {
     const getuser = localStorage.getItem("user_login");
     if (getuser && getuser.length) {
       const user = JSON.parse(getuser);
       setLoginData(user);
-      const userbirth = logindata.map((el, k) => {
-        return el.date === todayDate;
-      });
-
-      if (userbirth) {
-        setTimeout(() => {
-          console.log("ok");
-          handleShow();
-        }, 1000);
-      }
     }
   };
 
@@ -46,9 +31,7 @@ const Details = () => {
         "ErrorPage"
       ) : (
         <>
-          <div
-            class=" border-t border-b border-blue-500 text-blue-700 px-4 py-2"
-          >
+          <div class=" border-t border-b border-blue-500 text-blue-700 px-4 py-2">
             <div className="flex justify-end px-10 ">
               <h1 className="px-4 ">{logindata[0].name}</h1>
               <Button className="px-2 w-28" onClick={userlogout}>
