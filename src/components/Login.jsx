@@ -102,9 +102,8 @@ const Login = () => {
               </Form.Group>
               <Button
                 variant="primary"
-                className=""
+                className="bg-sky-500"
                 onClick={addData}
-                style={{ background: "rgb(67, 185, 127)" }}
                 type="submit"
               >
                 Submit

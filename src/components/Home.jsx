@@ -129,9 +129,8 @@ const Home = () => {
               </Form.Group>
               <Button
                 variant="primary"
-                className=""
                 onClick={addData}
-                style={{ background: "rgb(67, 185, 127)" }}
+                className="bg-sky-500"
                 type="submit"
               >
                 Submit

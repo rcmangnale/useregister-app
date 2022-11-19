@@ -48,17 +48,41 @@ const Details = () => {
   return (
     <>
       {logindata.length === 0 ? (
-        "errror"
+        "ErrorPage"
       ) : (
         <>
-          <div className="flex flex-col items-center ">
-            <h1>Details Page</h1>
-            <h1>{logindata[0].name}</h1>
-            <Button className="flex justify-center w-28" onClick={userlogout}>
+        <div className="flex justify-end px-10 pt-10">
+        <h1 className="px-4 pb-16">{logindata[0].name}</h1>
+         <Button className="w-28" onClick={userlogout}>
               LogOut
             </Button>
+            </div>
+          <div className="flex flex-col items-center py-10 ">
+          <h1>Details Page</h1>
+            <h1>Hello, welcome to our website</h1>
+            <h1 className="pb-16">{logindata[0].name}</h1>
+            <table class="table-fixed w-1/2">
+              <thead>
+                <tr className="grid grid-cols-5 gap-24 border">
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Number</th>
+                  <th>Date of Birth</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="grid grid-cols-5 gap-24 border">
+                  <td>{logindata[0].name}</td>
+                  <td>{logindata[0].email}</td>
+                  <td>{logindata[0].Number}</td>
+                  <td>{logindata[0].date}</td>
+                  <td>{logindata[0].Address}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          {logindata[0].date === todayDate ? (
+          {/* {logindata[0].date === todayDate ? (
             <Modal show={true} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>{logindata[0].name}</Modal.Title>
@@ -75,7 +99,7 @@ const Details = () => {
             </Modal>
           ) : (
             ""
-          )}
+          )} */}
         </>
       )}
     </>
