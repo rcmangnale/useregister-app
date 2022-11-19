@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,17 +11,13 @@ const Details = () => {
   const [show, setShow] = useState(false);
 
   var todayDate = new Date().toISOString().slice(0, 10);
-
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const Welcome = () => {
     const getuser = localStorage.getItem("user_login");
     if (getuser && getuser.length) {
       const user = JSON.parse(getuser);
-
       setLoginData(user);
-
       const userbirth = logindata.map((el, k) => {
         return el.date === todayDate;
       });
@@ -51,14 +46,19 @@ const Details = () => {
         "ErrorPage"
       ) : (
         <>
-        <div className="flex justify-end px-10 pt-10">
-        <h1 className="px-4 pb-16">{logindata[0].name}</h1>
-         <Button className="w-28" onClick={userlogout}>
-              LogOut
-            </Button>
+          <div
+            class=" border-t border-b border-blue-500 text-blue-700 px-4 py-2"
+          >
+            <div className="flex justify-end px-10 ">
+              <h1 className="px-4 ">{logindata[0].name}</h1>
+              <Button className="px-2 w-28" onClick={userlogout}>
+                LogOut
+              </Button>
             </div>
+          </div>
+
           <div className="flex flex-col items-center py-10 ">
-          <h1>Details Page</h1>
+            <h1>Details Page</h1>
             <h1>Hello, welcome to our website</h1>
             <h1 className="pb-16">{logindata[0].name}</h1>
             <table class="table-fixed w-1/2">
@@ -82,24 +82,6 @@ const Details = () => {
               </tbody>
             </table>
           </div>
-          {/* {logindata[0].date === todayDate ? (
-            <Modal show={true} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>{logindata[0].name}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>Hello, welcome to our website !!!</Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                  Save Changes
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          ) : (
-            ""
-          )} */}
         </>
       )}
     </>
