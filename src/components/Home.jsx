@@ -1,12 +1,46 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import Views from "./Views";
 
-const Home = () => {
+
+export default function Home (){
   const history = useNavigate();
+ 
+  // const [users, setUsers]=useState();
+  // const [name, setName]=useState('');
+  // const [email, setEmail]=useState('');
+  // const [mobnumber, setMobNumber]=useState('');
+  // const [address, setAddress]=useState('');
+  // const [date, setDate]=useState('');
+
+  // const handleAddUserSubmit=(e)=>{
+  //   e.preventDefault();
+  //   // creating an object
+  //   let user={
+  //     name,
+  //     email,
+  //     mobnumber,
+  //     address,
+  //     date,
+  //   }
+  //   setUsers([...users,user]);
+  //   setName('');
+  //   setEmail('');
+  //   setMobNumber('');
+  //   setDate('');
+  //   setAddress('');
+  // }
+
+
+  // // saving data to local storage
+  // useEffect(()=>{
+  //   localStorage.setItem('users',JSON.stringify(users));
+  // },[users])
+
 
   const [values, setValues] = useState({
     name: "",
@@ -30,7 +64,6 @@ const Home = () => {
       };
     });
   };
-
   const addData = (e) => {
     e.preventDefault();
 
@@ -81,7 +114,9 @@ const Home = () => {
         <section className="flex justify-center">
           <div className="p-3 mt-3" style={{ width: "50%" }}>
             <h3 className="text-center ">Registration Form</h3>
-            <Form>
+            <Form
+            // onSubmit={handleAddUserSubmit}
+            >
               <Form.Group className="mb-3 " controlId="formBasicEmail">
                 <Form.Control
                   type="text"
@@ -116,7 +151,8 @@ const Home = () => {
               </Form.Group>
 
               <Form.Group className="mb-3 " controlId="formBasicEmail">
-                <Form.Control onChange={getdata} name="date" type="date" />
+                <Form.Control onChange={getdata} name="date" type="date"
+                />
               </Form.Group>
 
               <Form.Group className="mb-3 " controlId="formBasicPassword">
@@ -132,6 +168,7 @@ const Home = () => {
                 onClick={addData}
                 className="bg-sky-500"
                 type="submit"
+                
               >
                 Submit
               </Button>
@@ -150,4 +187,3 @@ const Home = () => {
   );
 };
 
-export default Home;

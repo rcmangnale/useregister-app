@@ -63,11 +63,12 @@ const Login = () => {
         if (userlogin.length === 0) {
           alert("invalid details");
         } else {
-          console.log("user login succesfulyy");
-
+          console.log("user login succesfully");
+          // localStorage.setItem(JSON.stringify([...data, values]))
           localStorage.setItem("user_login", JSON.stringify(userlogin));
 
           history("/details");
+          
         }
       }
     }
